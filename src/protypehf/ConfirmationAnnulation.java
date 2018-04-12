@@ -5,6 +5,8 @@
  */
 package protypehf;
 
+import data.Billet;
+import data.VariableGlobale;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
@@ -13,9 +15,9 @@ import javax.swing.JSeparator;
  * @author sylva
  */
 public class ConfirmationAnnulation extends javax.swing.JFrame {
-
-    JPanel reservation;
-    JSeparator separator;
+    
+    private VariableGlobale v = new VariableGlobale();
+    private int numBillet;
     
     /**
      * Creates new form ConfirmationAnnulation
@@ -24,9 +26,13 @@ public class ConfirmationAnnulation extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void init(JPanel reserv, JSeparator separ) {
-        reservation = reserv;
-        separator = separ;
+    /**
+     * Creates new form ConfirmationAnnulation
+     * @param num
+     */
+    public ConfirmationAnnulation(int num) {
+        initComponents();
+        numBillet = num;
     }
 
     /**
@@ -94,8 +100,9 @@ public class ConfirmationAnnulation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        reservation.setVisible(false);
-        if (separator != null) separator.setVisible(false);
+        Billet b = v.getBillet(numBillet);
+        b.setAnnuler(true);
+        v.setBillet(b);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

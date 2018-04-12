@@ -5,21 +5,62 @@
  */
 package protypehf;
 
+import data.Billet;
+import data.VariableGlobale;
+
 /**
  *
  * @author sylva
  */
 public class MesBillets extends javax.swing.JFrame {
     
-    ConfirmationAnnulation confirmationAnnulation = new ConfirmationAnnulation();
+    ConfirmationAnnulation confirmationAnnulation;
+    ModificationBillet modificationBillet;
+    VariableGlobale v = new VariableGlobale();
 
     /**
      * Creates new form MesBillets
      */
     public MesBillets() {
         initComponents();
+        initReservation();
     }
 
+    private void initReservation() {
+        //Init reservation 1
+        Billet b = v.getBillet(1);
+        System.out.println(b.getJour());
+        jLabel17.setText(b.getFilm().getTitre());
+        jLabel23.setText(b.getFilm().getResume());
+        jLabel19.setText("Jour de la séance - " + b.getJour());
+        jLabel20.setText("Heure de la séance - " + b.getHeure());
+        jLabel21.setText("Ville - " + b.getVille());
+        jLabel22.setText("Cinéma - " + b.getCinema());
+        if (b.getAnnuler()) jPanel3.setVisible(false);
+        
+        //Init reservation 2
+        b = v.getBillet(2);
+        System.out.println(b.getJour());
+        jLabel47.setText(b.getFilm().getTitre());
+        jLabel53.setText(b.getFilm().getResume());
+        jLabel49.setText("Jour de la séance - " + b.getJour());
+        jLabel50.setText("Heure de la séance - " + b.getHeure());
+        jLabel51.setText("Ville - " + b.getVille());
+        jLabel52.setText("Cinéma - " + b.getCinema());
+        if (b.getAnnuler()) jPanel7.setVisible(false);
+        
+        //Init reservation 3
+        b = v.getBillet(3);
+        System.out.println(b.getJour());
+        jLabel55.setText(b.getFilm().getTitre());
+        jLabel61.setText(b.getFilm().getResume());
+        jLabel57.setText("Jour de la séance - " + b.getJour());
+        jLabel58.setText("Heure de la séance - " + b.getHeure());
+        jLabel59.setText("Ville - " + b.getVille());
+        jLabel60.setText("Cinéma - " + b.getCinema());
+        if (b.getAnnuler()) jPanel8.setVisible(false);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,23 +108,12 @@ public class MesBillets extends javax.swing.JFrame {
         jButton18 = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
-        jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jLabel78 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mes billets"));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jLabel17.setText("Dunkerque");
@@ -101,6 +131,11 @@ public class MesBillets extends javax.swing.JFrame {
         jLabel23.setText("Ce ci est un résumé bla bla bla");
 
         jButton7.setText("Modifier");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Annuler");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -189,6 +224,11 @@ public class MesBillets extends javax.swing.JFrame {
         jLabel53.setText("Ce ci est un résumé bla bla bla");
 
         jButton15.setText("Modifier");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jButton16.setText("Annuler");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -277,6 +317,11 @@ public class MesBillets extends javax.swing.JFrame {
         jLabel61.setText("Ce ci est un résumé bla bla bla");
 
         jButton17.setText("Modifier");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jButton18.setText("Annuler");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
@@ -350,94 +395,6 @@ public class MesBillets extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel71.setText("Le loup de Wall Street");
-
-        jLabel72.setText("Résumé -");
-
-        jLabel73.setText("Jour de la séance - 10 / 05 / 2018");
-
-        jLabel74.setText("Heure de la séance - 20h 30");
-
-        jLabel75.setText("Ville - Toulouse");
-
-        jLabel76.setText("Cinéma - Gaumont Labége");
-
-        jLabel77.setText("Ce ci est un résumé bla bla bla");
-
-        jButton21.setText("Modifier");
-
-        jButton22.setText("Annuler");
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
-            }
-        });
-
-        jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/affiche1.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel78)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel71))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel72))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel77)))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel73)
-                    .addComponent(jLabel76)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel10Layout.createSequentialGroup()
-                            .addComponent(jLabel75)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton21))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                            .addComponent(jLabel74)
-                            .addGap(109, 109, 109)
-                            .addComponent(jButton22))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel78))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel73)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel74)
-                                    .addComponent(jButton22))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel75)
-                                    .addComponent(jButton21))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel76))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel71)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel72)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel77)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -448,7 +405,6 @@ public class MesBillets extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,8 +420,6 @@ public class MesBillets extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -516,24 +470,82 @@ public class MesBillets extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        confirmationAnnulation.init(jPanel3, jSeparator1);
+        confirmationAnnulation = new ConfirmationAnnulation(1);
+        
+        confirmationAnnulation.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                initReservation();
+            }
+        });
+   
         confirmationAnnulation.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        confirmationAnnulation.init(jPanel7, jSeparator2);
+        confirmationAnnulation = new ConfirmationAnnulation(1);
+        
+        confirmationAnnulation.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                initReservation();
+            }
+        });
+   
         confirmationAnnulation.setVisible(true);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        confirmationAnnulation.init(jPanel8, jSeparator3);
+        confirmationAnnulation = new ConfirmationAnnulation(2);
+        
+        confirmationAnnulation.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                initReservation();
+            }
+        });
+   
         confirmationAnnulation.setVisible(true);
     }//GEN-LAST:event_jButton18ActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        confirmationAnnulation.init(jPanel10, null);
-        confirmationAnnulation.setVisible(true);
-    }//GEN-LAST:event_jButton22ActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        modificationBillet= new ModificationBillet(3);
+        
+        modificationBillet.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                initReservation();
+            }
+        });
+   
+        modificationBillet.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        modificationBillet = new ModificationBillet(2);
+        
+        modificationBillet.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                initReservation();
+            }
+        });
+   
+        modificationBillet.setVisible(true);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        modificationBillet = new ModificationBillet(3);
+        
+        modificationBillet.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                initReservation();
+            }
+        });
+   
+        modificationBillet.setVisible(true);
+    }//GEN-LAST:event_jButton17ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -572,21 +584,13 @@ public class MesBillets extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -595,22 +599,6 @@ public class MesBillets extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
@@ -627,30 +615,10 @@ public class MesBillets extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
