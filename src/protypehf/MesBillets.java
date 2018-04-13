@@ -7,6 +7,10 @@ package protypehf;
 
 import data.Billet;
 import data.VariableGlobale;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -14,8 +18,6 @@ import data.VariableGlobale;
  */
 public class MesBillets extends javax.swing.JFrame {
     
-    ConfirmationAnnulation confirmationAnnulation;
-    ModificationBillet modificationBillet;
     VariableGlobale v = new VariableGlobale();
 
     /**
@@ -27,38 +29,92 @@ public class MesBillets extends javax.swing.JFrame {
     }
 
     private void initReservation() {
+        ArrayList<JLabel> tab;
+        Iterator<JLabel> it;
+        
         //Init reservation 1
         Billet b = v.getBillet(1);
-        System.out.println(b.getJour());
         jLabel17.setText(b.getFilm().getTitre());
         jLabel23.setText(b.getFilm().getResume());
         jLabel19.setText("Jour de la séance - " + b.getJour());
         jLabel20.setText("Heure de la séance - " + b.getHeure());
         jLabel21.setText("Ville - " + b.getVille());
         jLabel22.setText("Cinéma - " + b.getCinema());
-        if (b.getAnnuler()) jPanel3.setVisible(false);
+        jLabel16.setText("Nombre de place : " + b.getNbPlace());
+        jLabel24.setIcon(new ImageIcon(getClass().getResource("/protypehf/" + b.getFilm().getImage())));
+        
+        tab = new ArrayList<JLabel>();
+        tab.add(jLabel1);
+        tab.add(jLabel2);
+        tab.add(jLabel3);
+        tab.add(jLabel4);
+        tab.add(jLabel5);
+        
+        it = tab.iterator();
+        for(int i=0 ; i<b.getFilm().getAvis() ; i++) {
+            it.next().setIcon(new ImageIcon(getClass().getResource("/protypehf/star.png")));
+        }
+        
+        if (b.getAnnuler()) {
+            jPanel3.setVisible(false);
+            jSeparator1.setVisible(false);
+        }
         
         //Init reservation 2
         b = v.getBillet(2);
-        System.out.println(b.getJour());
         jLabel47.setText(b.getFilm().getTitre());
         jLabel53.setText(b.getFilm().getResume());
         jLabel49.setText("Jour de la séance - " + b.getJour());
         jLabel50.setText("Heure de la séance - " + b.getHeure());
         jLabel51.setText("Ville - " + b.getVille());
         jLabel52.setText("Cinéma - " + b.getCinema());
-        if (b.getAnnuler()) jPanel7.setVisible(false);
+        jLabel25.setText("Nombre de place : " + b.getNbPlace());
+        jLabel54.setIcon(new ImageIcon(getClass().getResource("/protypehf/" + b.getFilm().getImage())));
+        
+        tab = new ArrayList<JLabel>();
+        tab.add(jLabel6);
+        tab.add(jLabel7);
+        tab.add(jLabel8);
+        tab.add(jLabel9);
+        tab.add(jLabel10);
+        
+        it = tab.iterator();
+        for(int i=0 ; i<b.getFilm().getAvis() ; i++) {
+            it.next().setIcon(new ImageIcon(getClass().getResource("/protypehf/star.png")));
+        }
+        
+        if (b.getAnnuler()) {
+            jPanel7.setVisible(false);
+            jSeparator2.setVisible(false);
+        }
         
         //Init reservation 3
         b = v.getBillet(3);
-        System.out.println(b.getJour());
         jLabel55.setText(b.getFilm().getTitre());
         jLabel61.setText(b.getFilm().getResume());
         jLabel57.setText("Jour de la séance - " + b.getJour());
         jLabel58.setText("Heure de la séance - " + b.getHeure());
         jLabel59.setText("Ville - " + b.getVille());
         jLabel60.setText("Cinéma - " + b.getCinema());
-        if (b.getAnnuler()) jPanel8.setVisible(false);
+        jLabel26.setText("Nombre de place : " + b.getNbPlace());
+        jLabel62.setIcon(new ImageIcon(getClass().getResource("/protypehf/" + b.getFilm().getImage())));
+        
+        tab = new ArrayList<JLabel>();
+        tab.add(jLabel12);
+        tab.add(jLabel11);
+        tab.add(jLabel14);
+        tab.add(jLabel13);
+        tab.add(jLabel15);
+        
+        it = tab.iterator();
+        for(int i=0 ; i<b.getFilm().getAvis() ; i++) {
+            it.next().setIcon(new ImageIcon(getClass().getResource("/protypehf/star.png")));
+        }
+        
+        if (b.getAnnuler()) {
+            jPanel8.setVisible(false);
+            jSeparator3.setVisible(false);
+        }
     }
     
     /**
@@ -83,6 +139,12 @@ public class MesBillets extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         jLabel47 = new javax.swing.JLabel();
@@ -95,6 +157,12 @@ public class MesBillets extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
@@ -107,6 +175,12 @@ public class MesBillets extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -144,7 +218,17 @@ public class MesBillets extends javax.swing.JFrame {
             }
         });
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/affiche1.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel16.setText("Nombre de places : 1");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -162,21 +246,42 @@ public class MesBillets extends javax.swing.JFrame {
                         .addComponent(jLabel18))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel23)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5))
+                            .addComponent(jLabel23))))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel22)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel21)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel20)
-                            .addGap(109, 109, 109)
-                            .addComponent(jButton8))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addContainerGap(583, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel16)
+                                .addGap(106, 106, 106))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton7)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jButton8)))
+                        .addGap(260, 260, 260))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,22 +296,33 @@ public class MesBillets extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jButton8))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jButton7))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel22))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel20)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel21)
+                                            .addComponent(jLabel16))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel22))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jButton8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton7))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel18)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel23)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel23)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jLabel47.setText("Drive");
@@ -237,7 +353,17 @@ public class MesBillets extends javax.swing.JFrame {
             }
         });
 
-        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/affiche1.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel25.setText("Nombre de places : 1");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -255,21 +381,39 @@ public class MesBillets extends javax.swing.JFrame {
                         .addComponent(jLabel48))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel53)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10))
+                            .addComponent(jLabel53))))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel49)
-                    .addComponent(jLabel52)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addComponent(jLabel51)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton15))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel49)
+                            .addComponent(jLabel52))
+                        .addContainerGap(583, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel50)
-                            .addGap(109, 109, 109)
-                            .addComponent(jButton16))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel51)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel25)
+                                .addGap(102, 102, 102)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton15)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jButton16)))
+                        .addGap(260, 260, 260))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,14 +427,18 @@ public class MesBillets extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel49)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel50)
-                                    .addComponent(jButton16))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel51)
-                                    .addComponent(jButton15))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel50)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel51)
+                                            .addComponent(jLabel25)))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jButton16)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton15)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel52))
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -298,7 +446,14 @@ public class MesBillets extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel48)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel53)))))
+                                .addComponent(jLabel53)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -330,7 +485,17 @@ public class MesBillets extends javax.swing.JFrame {
             }
         });
 
-        jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/affiche1.jpg"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/protypehf/empty_star.png"))); // NOI18N
+
+        jLabel26.setText("Nombre de places : 1");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -348,21 +513,39 @@ public class MesBillets extends javax.swing.JFrame {
                         .addComponent(jLabel56))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel61)))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15))
+                            .addComponent(jLabel61))))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel57)
-                    .addComponent(jLabel60)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jLabel59)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton17))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel57)
+                            .addComponent(jLabel60))
+                        .addContainerGap(583, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel58)
-                            .addGap(109, 109, 109)
-                            .addComponent(jButton18))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel59)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel26)
+                                .addGap(103, 103, 103)))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton17)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jButton18)))
+                        .addGap(261, 261, 261))))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,22 +559,33 @@ public class MesBillets extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel57)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel58)
-                                    .addComponent(jButton18))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel59)
-                                    .addComponent(jButton17))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(jLabel58)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel59)
+                                            .addComponent(jLabel26)))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(jButton18)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton17)))
+                                .addGap(25, 25, 25)
                                 .addComponent(jLabel60))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel55)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel56)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel61)))))
+                                .addComponent(jLabel61)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel15))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -470,81 +664,72 @@ public class MesBillets extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        confirmationAnnulation = new ConfirmationAnnulation(1);
-        
-        confirmationAnnulation.addWindowListener(new java.awt.event.WindowAdapter() {
+        AnnulationJDialog dialog = new AnnulationJDialog(this, true, 1);
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
                 initReservation();
             }
         });
-   
-        confirmationAnnulation.setVisible(true);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        confirmationAnnulation = new ConfirmationAnnulation(1);
-        
-        confirmationAnnulation.addWindowListener(new java.awt.event.WindowAdapter() {
+        AnnulationJDialog dialog = new AnnulationJDialog(this, true, 2);
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
                 initReservation();
             }
         });
-   
-        confirmationAnnulation.setVisible(true);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        confirmationAnnulation = new ConfirmationAnnulation(2);
-        
-        confirmationAnnulation.addWindowListener(new java.awt.event.WindowAdapter() {
+        AnnulationJDialog dialog = new AnnulationJDialog(this, true, 3);
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
                 initReservation();
             }
         });
-   
-        confirmationAnnulation.setVisible(true);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        modificationBillet= new ModificationBillet(3);
+        ModificationJDialog m = new ModificationJDialog(this, true, 1);
         
-        modificationBillet.addWindowListener(new java.awt.event.WindowAdapter() {
+        m.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
                 initReservation();
             }
         });
-   
-        modificationBillet.setVisible(true);
+        m.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        modificationBillet = new ModificationBillet(2);
+        ModificationJDialog m = new ModificationJDialog(this, true, 2);
         
-        modificationBillet.addWindowListener(new java.awt.event.WindowAdapter() {
+        m.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
                 initReservation();
             }
         });
-   
-        modificationBillet.setVisible(true);
+        m.setVisible(true);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        modificationBillet = new ModificationBillet(3);
+        ModificationJDialog m = new ModificationJDialog(this, true, 3);
         
-        modificationBillet.addWindowListener(new java.awt.event.WindowAdapter() {
+        m.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
                 initReservation();
             }
         });
-   
-        modificationBillet.setVisible(true);
+        m.setVisible(true);
     }//GEN-LAST:event_jButton17ActionPerformed
 
     /**
@@ -575,10 +760,8 @@ public class MesBillets extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MesBillets().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MesBillets().setVisible(true);
         });
     }
 
@@ -591,17 +774,31 @@ public class MesBillets extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
@@ -612,9 +809,13 @@ public class MesBillets extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;

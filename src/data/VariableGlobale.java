@@ -11,17 +11,19 @@ package data;
  */
 public class VariableGlobale {
     
+    static final private String[] listCinema = {"Gaumont - Labége", "Gaumont - Wilson", "UGC - Wilson"}; 
+    
     //Film 1
     static private Film film1 = 
-            new Film("Dunkerque", "Ceci est un resume", 4);
+            new Film("Dunkerque", "Ceci est un resume", "affiche1.jpg", 4);
     
     //Film 2 
     static private Film film2 = 
-            new Film("Drive", "Ceci est aussi un resume", 3);
+            new Film("Drive", "Ceci est un resume", "affiche2.jpg", 3);
     
     //Film 3 
     static private Film film3 = 
-            new Film("Avatar", "Ceci est suberbe un resume", 2);
+            new Film("Avatar", "Ceci est un resume", "affiche3.jpg", 2);
     
     //Réservation 1
     static private Billet billet1 = 
@@ -29,11 +31,11 @@ public class VariableGlobale {
     
     //Réservation 2
     static private Billet billet2 = 
-            new Billet(1, film2, "05 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 2, false);
+            new Billet(2, film2, "05 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 2, false);
     
     //Réservation 3
     static private Billet billet3 = 
-            new Billet(1, film3, "06 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 1, false);
+            new Billet(3, film3, "06 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 1, false);
     
     public Film getFilm (int num) {
         switch (num) {
@@ -55,15 +57,17 @@ public class VariableGlobale {
         switch (b.getNumBillet()) {
             case 1: 
                 billet1 = b;
-                System.out.println("Slt1");
                 break;
             case 2: 
                 billet2 = b;
                 break;
             default: 
                 billet3 = b;
-                System.out.println("Slt");
                 break;
         }
+    }
+    
+    public String[] getCinema () {
+        return listCinema;
     }
 }

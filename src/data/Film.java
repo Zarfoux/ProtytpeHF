@@ -13,11 +13,13 @@ public class Film {
     
     private String titre;
     private String resume;
+    private String image;
     private int avis;
     
-    public Film (String t, String r, int a) {
+    public Film (String t, String r,String i, int a) {
         titre = t;
         resume = r;
+        image = i;
         avis = a;
     }
     
@@ -31,5 +33,9 @@ public class Film {
     
     public int getAvis (){
         return avis;
+    }
+    
+    public String getImage (){
+        return image;
     }
 }
