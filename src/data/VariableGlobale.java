@@ -27,15 +27,15 @@ public class VariableGlobale {
     
     //Réservation 1
     static private Billet billet1 = 
-            new Billet(1, film1, "04 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 1, false);
+            new Billet(1, film1, "04 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 1, true);
     
     //Réservation 2
     static private Billet billet2 = 
-            new Billet(2, film2, "05 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 2, false);
+            new Billet(2, film2, "05 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 2, true);
     
     //Réservation 3
     static private Billet billet3 = 
-            new Billet(3, film3, "06 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 1, false);
+            new Billet(3, film3, "06 / 05 / 2018", "20h30", "Toulouse", "Gaumont Labége", 1, true);
     
     public Film getFilm (int num) {
         switch (num) {
